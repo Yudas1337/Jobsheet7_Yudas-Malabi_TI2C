@@ -63,7 +63,7 @@ class MahasiswaController extends Controller
     {
         //menampilkan detail data dengan menemukan/berdasarkan Nim Mahasiswa
         // $Mahasiswa = Mahasiswa::find($Nim);
-        $Mahasiswa = Mahasiswa::where('nim', $Nim)->firstOrFail();
+        $Mahasiswa = Mahasiswa::where('nim', $Nim)->first();
         return view('mahasiswa.detail', compact('Mahasiswa'));
     }
 
@@ -98,7 +98,7 @@ class MahasiswaController extends Controller
         ]);
         //fungsi eloquent untuk mengupdate data inputan kita
         // Mahasiswa::find($nim)->update($request->all());
-        Mahasiswa::where('nim', $nim)->firstOrFail()->update($request->all());
+        Mahasiswa::where('nim', $nim)->first()->update($request->all());
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('mahasiswa.index')
@@ -115,7 +115,7 @@ class MahasiswaController extends Controller
     {
         //fungsi eloquent untuk menghapus data
         // Mahasiswa::find($Nim)->delete();
-        Mahasiswa::where('nim', $Nim)->firstOrFail()->delete();
+        Mahasiswa::where('nim', $Nim)->first()->delete();
         return redirect()->route('mahasiswa.index')
             ->with('success', 'Mahasiswa Berhasil Dihapus');
     }
