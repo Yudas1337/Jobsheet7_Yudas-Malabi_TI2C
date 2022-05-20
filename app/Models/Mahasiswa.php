@@ -38,10 +38,28 @@ class Mahasiswa extends Model
         return $this->belongsTo(Kelas::class);
     }
 
-    public static function getByNim($nim)
+    /**
+     * many to many with Matakuliah Models
+     *
+     * @return relationship
+     */
+
+    public function matakuliah()
     {
-        return self::where('nim', $nim)->firstOrFail();
+        return $this->hasMany(Matakuliah::class, 'mahasiswa_id');
     }
+
+    /**
+     * many to many with Mahasiswa_MataKuliah Models
+     *
+     * @return relationship
+     */
+
+    public function khs()
+    {
+        return $this->belongsToMany(Mahasiswa_MataKuliah::class, 'mahasiswa', 'id_mahasiswa', 'id_mahasiswa', null, 'mahasiswa_id');
+    }
+
 
     /**
      * Scope a query to search with where

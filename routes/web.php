@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::prefix('mahasiswa')->group(function () {
+    Route::get('nilai/{nim}', [MahasiswaController::class, 'viewKhs'])->name('mahasiswa.khs');
+});
 Route::resource('mahasiswa', MahasiswaController::class);
 Route::post('search', [MahasiswaController::class, 'searchMahasiswa'])->name('mahasiswa.search');

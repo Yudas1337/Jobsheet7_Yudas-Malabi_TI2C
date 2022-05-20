@@ -34,23 +34,22 @@
             <th>Nama</th>
             <th>Kelas</th>
             <th>Jurusan</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         @foreach ($mahasiswa as $mhs)
             <tr>
-
                 <td>{{ $mhs->nim }}</td>
                 <td>{{ $mhs->nama }}</td>
                 <td>{{ $mhs->kelas->nama_kelas }}</td>
                 <td>{{ $mhs->jurusan }}</td>
                 <td>
                     <form action="{{ route('mahasiswa.destroy', ['mahasiswa' => $mhs->nim]) }}" method="POST">
-
                         <a class="btn btn-info" href="{{ route('mahasiswa.show', $mhs->nim) }}">Show</a>
                         <a class="btn btn-primary" href="{{ route('mahasiswa.edit', $mhs->nim) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
+                        <a class="btn btn-warning" href="{{ route('mahasiswa.khs', $mhs->nim) }}">Nilai</a>
                     </form>
                 </td>
             </tr>
