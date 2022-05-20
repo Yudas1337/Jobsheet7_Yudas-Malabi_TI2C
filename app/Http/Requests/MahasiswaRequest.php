@@ -27,10 +27,7 @@ class MahasiswaRequest extends FormRequest
             'nim'           => 'required',
             'nama'          => 'required',
             'kelas'         => 'required',
-            'jurusan'       => 'required',
-            'email'         => 'required|email|max:100',
-            'alamat'        => 'required',
-            'tanggal_lahir' => 'required'
+            'jurusan'       => 'required'
         ];
     }
 }
