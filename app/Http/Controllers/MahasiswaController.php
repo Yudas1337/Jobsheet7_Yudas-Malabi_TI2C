@@ -145,9 +145,7 @@ class MahasiswaController extends Controller
 
     public function viewKhs($nim)
     {
-        $mahasiswa = Mahasiswa::with(['kelas'])->where('nim', $nim)->first();
-        $data = Mahasiswa_MataKuliah::where('mahasiswa_id', $mahasiswa->id_mahasiswa)->with(['mahasiswa', 'matakuliah'])->get();
-
-        return view('mahasiswa.khs', compact('mahasiswa', 'data'));
+        $data = Mahasiswa::where('nim', $nim)->with(['kelas', 'khs.mataKuliah'])->get();
+        return view('mahasiswa.khs', compact('data'));
     }
 }

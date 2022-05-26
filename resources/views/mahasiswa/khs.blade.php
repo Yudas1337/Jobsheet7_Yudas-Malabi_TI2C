@@ -23,7 +23,7 @@
                     <p class="text-dark font-weight-bold">Nama:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $mahasiswa->nama }}</p>
+                    <p class="text-dark">{{ $data->first()->nama }}</p>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <p class="text-dark font-weight-bold">NIM:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $mahasiswa->nim }}</p>
+                    <p class="text-dark">{{ $data->first()->nim }}</p>
                 </td>
             </tr>
             <tr>
@@ -39,12 +39,11 @@
                     <p class="text-dark font-weight-bold">Kelas:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $mahasiswa->kelas->nama_kelas }}</p>
+                    <p class="text-dark">{{ $data->first()->kelas->nama_kelas }}</p>
                 </td>
             </tr>
         </thead>
     </table>
-
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -55,12 +54,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data as $list)
+            @foreach ($data->first()->khs as $khs)
                 <tr>
-                    <td>{{ $list->matakuliah->nama_matkul }}</td>
-                    <td>{{ $list->matakuliah->sks }}</td>
-                    <td>{{ $list->matakuliah->semester }}</td>
-                    <td>{{ $list->nilai }}</td>
+                    <td>{{ $khs->mataKuliah->nama_matkul }}</td>
+                    <td>{{ $khs->mataKuliah->sks }}</td>
+                    <td>{{ $khs->mataKuliah->semester }}</td>
+                    <td>{{ $khs->nilai }}</td>
                 </tr>
             @endforeach
         </tbody>

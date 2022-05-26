@@ -39,17 +39,6 @@ class Mahasiswa extends Model
     }
 
     /**
-     * many to many with Matakuliah Models
-     *
-     * @return relationship
-     */
-
-    public function matakuliah()
-    {
-        return $this->hasMany(Matakuliah::class, 'mahasiswa_id');
-    }
-
-    /**
      * many to many with Mahasiswa_MataKuliah Models
      *
      * @return relationship
@@ -57,7 +46,8 @@ class Mahasiswa extends Model
 
     public function khs()
     {
-        return $this->belongsToMany(Mahasiswa_MataKuliah::class, 'mahasiswa', 'id_mahasiswa', 'id_mahasiswa', null, 'mahasiswa_id');
+        // return $this->belongsToMany(Mahasiswa_MataKuliah::class, 'mahasiswa', 'id_mahasiswa', 'id_mahasiswa', null, 'mahasiswa_id');
+        return $this->hasMany(Mahasiswa_MataKuliah::class, 'mahasiswa_id');
     }
 
 
