@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MahasiswaRequest;
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
-use App\Models\Mahasiswa_MataKuliah;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -145,7 +144,7 @@ class MahasiswaController extends Controller
 
     public function viewKhs($nim)
     {
-        $data = Mahasiswa::where('nim', $nim)->with(['kelas', 'khs.mataKuliah'])->get();
+        $data = Mahasiswa::where('nim', $nim)->with(['kelas', 'khs.mataKuliah'])->first();
         return view('mahasiswa.khs', compact('data'));
     }
 }

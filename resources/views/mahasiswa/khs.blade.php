@@ -23,7 +23,7 @@
                     <p class="text-dark font-weight-bold">Nama:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $data->first()->nama }}</p>
+                    <p class="text-dark">{{ $data->nama }}</p>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <p class="text-dark font-weight-bold">NIM:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $data->first()->nim }}</p>
+                    <p class="text-dark">{{ $data->nim }}</p>
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
                     <p class="text-dark font-weight-bold">Kelas:</p>
                 </td>
                 <td>
-                    <p class="text-dark">{{ $data->first()->kelas->nama_kelas }}</p>
+                    <p class="text-dark">{{ $data->kelas->nama_kelas }}</p>
                 </td>
             </tr>
         </thead>
@@ -54,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data->first()->khs as $khs)
+            @foreach ($data->khs as $khs)
                 <tr>
                     <td>{{ $khs->mataKuliah->nama_matkul }}</td>
                     <td>{{ $khs->mataKuliah->sks }}</td>
